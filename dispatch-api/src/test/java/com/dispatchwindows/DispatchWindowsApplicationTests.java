@@ -1,10 +1,10 @@
-package com.dispatch.windows.dw;
+package com.dispatchwindows;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DwApplicationTests {
+class DispatchWindowsApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,13 +1,13 @@
-package com.dispatch.windows.dw;
+package com.dispatchwindows;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DwApplication {
+public class DispatchWindowsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DwApplication.class, args);
+		SpringApplication.run(DispatchWindowsApplication.class, args);
 	}
 
 }
