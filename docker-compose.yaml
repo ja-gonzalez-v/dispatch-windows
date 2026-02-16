@@ -29,12 +29,12 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
 
-  # dispatch-front:
-  #   build: ./dispatch-front
-  #   ports:
-  #     - "3000:80"
-  #   depends_on:
-  #     - dispatch-api
+  dispatch-front:
+    build: ./dispatch-front
+    ports:
+      - "3000:80"
+    depends_on:
+      - dispatch-api
 
 volumes:
   pgdata:
