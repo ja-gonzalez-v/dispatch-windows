@@ -34,7 +34,7 @@ public class DataInitializer {
         System.out.println(">>> DataInitializer");
 
         if (zoneRepository.count() > 0) {
-            System.out.println(">>> Datos ya existen, se omite seed");
+            System.out.println(">>> data already exists");
             return;
         }
 
