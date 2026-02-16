@@ -1,0 +1,208 @@
+{
+  "info": {
+    "_postman_id": "66959646-61c8-41b6-a530-78dd15dd3e2f",
+    "name": "Dispatch windows",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "1440471"
+  },
+  "item": [
+    {
+      "name": "GET date availability by postal code",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/availability/dates?postalCode=7500000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "availability",
+            "dates"
+          ],
+          "query": [
+            {
+              "key": "postalCode",
+              "value": "7500000",
+              "description": "\"7500000\", \"7500001\", \"7500002\""
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'http://localhost:8080/api/availability/dates?postalCode=7500000'\n"
+      },
+      "response": []
+    },
+    {
+      "name": "GET date availability by postal code (NOT FOUND)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/availability/dates?postalCode=9999999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "availability",
+            "dates"
+          ],
+          "query": [
+            {
+              "key": "postalCode",
+              "value": "9999999"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'http://localhost:8080/api/availability/dates?postalCode=9999999'\n"
+      },
+      "response": []
+    },
+    {
+      "name": "GET time slot by date",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/availability/timeslots?postalCode=7500000&date=2026-02-17",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "availability",
+            "timeslots"
+          ],
+          "query": [
+            {
+              "key": "postalCode",
+              "value": "7500000"
+            },
+            {
+              "key": "date",
+              "value": "2026-02-17"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'http://localhost:8080/api/availability/timeslots?postalCode=7500000&date=2026-02-17'\n"
+      },
+      "response": []
+    },
+    {
+      "name": "POST select time slot by id (Lock OK)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"orderId\": \"ORDER-1\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/timeslots/1/select",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "timeslots",
+            "1",
+            "select"
+          ]
+        },
+        "description": "Generated from cURL: curl --location --request POST 'http://localhost:8080/api/timeslots/1/select' \\\n--header 'Content-Type: application/json' \\\n--data '{\n  \"orderId\": \"ORDER-1\"\n}'\n"
+      },
+      "response": []
+    },
+    {
+      "name": "POST select time slot by id (CONFLICT)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"orderId\": \"ORDER-2\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/timeslots/1/select",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "timeslots",
+            "1",
+            "select"
+          ]
+        },
+        "description": "Generated from cURL: curl --location --request POST 'http://localhost:8080/api/timeslots/1/select' \\\n--header 'Content-Type: application/json' \\\n--data '{\n  \"orderId\": \"ORDER-2\"\n}'\n"
+      },
+      "response": []
+    },
+    {
+      "name": "POST Confirm Reservation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"orderId\": \"ORDER-1\",\n  \"addressLine\": \"Av. Siempre Viva 742\",\n  \"postalCode\": \"7500000\",\n  \"timeSlotId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/reservations",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "reservations"
+          ]
+        },
+        "description": "Generated from cURL: curl --location --request POST 'http://localhost:8080/api/reservations' \\\n--header 'Content-Type: application/json' \\\n--data '{\n  \"orderId\": \"ORDER-1\",\n  \"addressLine\": \"Av. Siempre Viva 742\",\n  \"postalCode\": \"7500000\",\n  \"timeSlotId\": 1\n}'\n"
+      },
+      "response": []
+    }
+  ]
+}
